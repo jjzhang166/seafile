@@ -216,6 +216,9 @@ seafile_session_prepare (SeafileSession *session)
     /* Enable http sync by default. */
     session->enable_http_sync = TRUE;
 
+    /* Enable per-file sync status by default. */
+    session->enable_sync_status = FALSE;
+
     session->disable_verify_certificate = seafile_session_config_get_bool
         (session, KEY_DISABLE_VERIFY_CERTIFICATE);
 

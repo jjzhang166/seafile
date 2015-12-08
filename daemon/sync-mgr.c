@@ -3154,6 +3154,9 @@ seaf_sync_manager_update_active_path (SeafSyncManager *mgr,
     ActivePathsInfo *info;
     SeafRepo *repo;
 
+    if (!seaf->enable_sync_status)
+        return;
+
     if (!repo_id || !path) {
         seaf_warning ("BUG: empty repo_id or path.\n");
         return;
@@ -3216,6 +3219,9 @@ seaf_sync_manager_delete_active_path (SeafSyncManager *mgr,
                                       const char *path)
 {
     ActivePathsInfo *info;
+
+    if (!seaf->enable_sync_status)
+        return;
 
     if (!repo_id || !path) {
         seaf_warning ("BUG: empty repo_id or path.\n");
@@ -3291,6 +3297,9 @@ seaf_sync_manager_get_path_sync_status (SeafSyncManager *mgr,
     ActivePathsInfo *info;
     SyncInfo *sync_info;
     SyncStatus ret = SYNC_STATUS_NONE;
+
+    if (!seaf->enable_sync_status)
+        goto out;
 
     if (!repo_id || !path) {
         seaf_warning ("BUG: empty repo_id or path.\n");

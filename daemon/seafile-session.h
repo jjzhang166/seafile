@@ -85,6 +85,9 @@ struct _SeafileSession {
     int                  http_proxy_port;
     char                *http_proxy_username;
     char                *http_proxy_password;
+
+    /* Keep per-file sync status. */
+    gboolean             enable_sync_status;
 };
 
 struct _SeafileSessionClass
